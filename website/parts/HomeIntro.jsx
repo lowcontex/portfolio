@@ -19,10 +19,6 @@ export function HomeIntro() {
             ))}
           </div>
           <div className="hero-actions">
-            <a className="btn btn-primary" href={profile.resumeUrl} download>
-              <Icon name="download" />
-              Download Resume
-            </a>
             <a className="btn btn-secondary" href="#contact">
               <Icon name="mail" />
               Contact Me
