@@ -14,7 +14,21 @@ export function Contact() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    setStatus('This demo form is frontend-only. Please contact me through email or social links.')
+    const form = event.target
+    const name = form.name.value.trim()
+    const email = form.email.value.trim()
+    const message = form.message.value.trim()
+
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`)
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)
+    const mailto = `mailto:${profile.email}?subject=${subject}&body=${body}`
+
+    try {
+      window.location.href = mailto
+      setStatus('Opening your mail client to send the message...')
+    } catch (err) {
+      setStatus('This demo form is frontend-only. Please contact me through email or social links.')
+    }
   }
 
   return (
@@ -29,7 +43,7 @@ export function Contact() {
           <h3>Contact Details</h3>
           <div className="contact-links">
             {contactLinks.map((link) => (
-              <a href={link.href} key={link.label} target="_blank" rel="noreferrer">
+              <a href={link.href} key={link.label} target="_blank" rel="noopener noreferrer">
                 <Icon name={link.icon} />
                 <span>{link.label}</span>
               </a>

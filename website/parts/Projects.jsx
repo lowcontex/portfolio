@@ -39,12 +39,12 @@ function ProjectCard({ project, isDuplicate = false }) {
           ))}
         </div>
         <div className="project-actions">
-          <a className="small-button" href={project.githubUrl} target="_blank" rel="noreferrer">
+          <a className="small-button" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
             <Icon name="github" />
             GitHub
           </a>
           {project.demoUrl && project.demoUrl !== '#' ? (
-            <a className="small-button" href={project.demoUrl} target="_blank" rel="noreferrer">
+            <a className="small-button" href={project.demoUrl} target="_blank" rel="noopener noreferrer">
               <Icon name="external" />
               Live Demo
             </a>
